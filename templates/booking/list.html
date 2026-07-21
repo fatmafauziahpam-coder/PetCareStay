@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Booking</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    display:flex;
+    background:#f589a1;
+}
+
+.sidebar{
+    width:250px;
+    height:100vh;
+    background:#94B17A;
+    color:white;
+    padding:40px;
+    position:fixed;
+}
+
+.sidebar h2{
+    margin-bottom:50px;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    margin:25px 0;
+    font-size:20px;
+}
+
+.content{
+    margin-left:250px;
+    width:100%;
+    padding:50px;
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.top h1{
+    color:white;
+    font-size:50px;
+}
+
+.btn{
+    background:#94B17A;
+    color:white;
+    text-decoration:none;
+    padding:15px 25px;
+    border-radius:10px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+th{
+    background:#d9e7d1;
+    padding:15px;
+}
+
+td{
+    padding:15px;
+    border-top:1px solid #ddd;
+}
+
+.edit{
+    background:#ffc107;
+    color:black;
+    padding:8px 15px;
+    border-radius:6px;
+    text-decoration:none;
+}
+
+.delete{
+    background:#dc3545;
+    color:white;
+    padding:8px 15px;
+    border-radius:6px;
+    text-decoration:none;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="sidebar">
+
+<h2>🐾 PetCareStay</h2>
+
+<a href="/dashboard">Dashboard</a>
+<a href="/owners">Pemilik</a>
+<a href="/pets">Hewan</a>
+<a href="/bookings">Booking</a>
+<a href="#">Kontak</a>
+
+</div>
+
+<div class="content">
+
+<div class="top">
+
+<h1>Data Booking</h1>
+
+<a class="btn" href="/bookings/add">
++ Tambah Booking
+</a>
+
+</div>
+
+<table>
+
+<tr>
+    <th>No</th>
+    <th>Hewan</th>
+    <th>Check In</th>
+    <th>Check Out</th>
+    <th>Tipe Kandang</th>
+    <th>Status</th>
+    <th>Aksi</th>
+</tr>
+
+{% for booking in bookings %}
+
+<tr>
+
+<td>{{ loop.index }}</td>
+
+<td>{{ booking.pet.name }}</td>
+
+<td>{{ booking.check_in }}</td>
+
+<td>{{ booking.check_out }}</td>
+
+<td>{{ booking.room_type }}</td>
+
+<td>{{ booking.status }}</td>
+
+<td>
+
+<a class="edit"
+href="/bookings/edit/{{ booking.id }}">
+Edit
+</a>
+
+<a class="delete"
+href="/bookings/delete/{{ booking.id }}"
+onclick="return confirm('Yakin ingin menghapus booking ini?')">
+Hapus
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

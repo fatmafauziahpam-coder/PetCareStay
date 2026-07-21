@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Pemilik</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f589a1;
+            margin:0;
+            padding:40px;
+        }
+
+        .container{
+            width:600px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 0 15px rgba(0,0,0,.15);
+        }
+
+        h2{
+            text-align:center;
+            color:#94B17A;
+            margin-bottom:30px;
+        }
+
+        label{
+            display:block;
+            margin-top:15px;
+            font-weight:bold;
+        }
+
+        input, textarea{
+            width:100%;
+            padding:10px;
+            margin-top:5px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            box-sizing:border-box;
+        }
+
+        textarea{
+            height:100px;
+            resize:none;
+        }
+
+        .btn{
+            margin-top:25px;
+            display:flex;
+            justify-content:space-between;
+        }
+
+        button{
+            background:#94B17A;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            border-radius:8px;
+            cursor:pointer;
+        }
+
+        a{
+            background:#999;
+            color:white;
+            text-decoration:none;
+            padding:12px 25px;
+            border-radius:8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+<h2>Edit Data Pemilik</h2>
+
+<form method="POST">
+
+<label>Nama</label>
+<input type="text" name="name" value="{{ owner.name }}" required>
+
+<label>No HP</label>
+<input type="text" name="phone" value="{{ owner.phone }}">
+
+<label>Email</label>
+<input type="email" name="email" value="{{ owner.email }}">
+
+<label>Alamat</label>
+<textarea name="address">{{ owner.address }}</textarea>
+
+<div class="btn">
+    <a href="{{ url_for('owners') }}">Kembali</a>
+    <button type="submit">Update</button>
+</div>
+
+</form>
+
+</div>
+
+</body>
+</html>

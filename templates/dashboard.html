@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <h2>🐾 PetCareStay</h2>
+
+        <a href="/dashboard">
+            <i class="bi bi-grid-fill"></i>
+            Dashboard
+        </a>
+
+<a href="/owners">
+    <i class="bi bi-people-fill"></i>
+    Pemilik
+</a>
+
+<a href="/pets">
+    <i class="bi bi-heart-fill"></i>
+    Hewan
+</a>
+
+<a href="/bookings">
+    <i class="bi bi-calendar-check-fill"></i>
+    Booking
+</a>
+
+<a href="/contacts">
+    <i class="bi bi-chat-dots-fill"></i>
+    Kontak
+</a>
+
+        <a href="/">
+            <i class="bi bi-box-arrow-left"></i>
+            Logout
+        </a>
+
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+
+        <h1>Dashboard Admin</h1>
+
+       <div class="cards">
+
+    <div class="card-box">
+        <h5>🐶 Total Hewan</h5>
+        <h2>{{ total_pet }}</h2>
+    </div>
+
+    <div class="card-box">
+        <h5>👤 Total Pemilik</h5>
+        <h2>{{ total_owner }}</h2>
+    </div>
+
+    <div class="card-box">
+        <h5>📅 Booking</h5>
+        <h2>{{ total_booking }}</h2>
+    </div>
+
+    <div class="card-box">
+        <h5>💬 Kontak</h5>
+        <h2>{{ total_contact }}</h2>
+    </div>
+
+</div>
+
+{% endblock %}

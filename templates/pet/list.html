@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Hewan</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            display:flex;
+            background:#f589a1;
+        }
+
+        .sidebar{
+            width:250px;
+            height:100vh;
+            background:#94B17A;
+            color:white;
+            padding:40px;
+            position:fixed;
+        }
+
+        .sidebar h2{
+            margin-bottom:50px;
+        }
+
+        .sidebar a{
+            display:block;
+            color:white;
+            text-decoration:none;
+            margin:25px 0;
+            font-size:20px;
+        }
+
+        .content{
+            margin-left:250px;
+            width:100%;
+            padding:50px;
+        }
+
+        .top{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:30px;
+        }
+
+        .top h1{
+            color:white;
+            font-size:55px;
+        }
+
+        .btn{
+            text-decoration:none;
+            background:#94B17A;
+            color:white;
+            padding:15px 25px;
+            border-radius:10px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+        }
+
+        th{
+            background:#d9e7d1;
+            padding:15px;
+            text-align:left;
+        }
+
+        td{
+            padding:15px;
+            border-top:1px solid #ddd;
+        }
+
+        .edit{
+            background:#ffc107;
+            color:black;
+            padding:8px 15px;
+            border-radius:6px;
+            text-decoration:none;
+        }
+
+        .delete{
+            background:#dc3545;
+            color:white;
+            padding:8px 15px;
+            border-radius:6px;
+            text-decoration:none;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="sidebar">
+
+<h2>🐾 PetCareStay</h2>
+
+<a href="/dashboard">Dashboard</a>
+<a href="/owners">Pemilik</a>
+<a href="/pets">Hewan</a>
+<a href="#">Booking</a>
+<a href="#">Kontak</a>
+
+</div>
+
+<div class="content">
+
+<div class="top">
+
+<h1>Data Hewan</h1>
+
+<a class="btn" href="/pets/add">+ Tambah Hewan</a>
+
+</div>
+
+<table>
+
+<tr>
+    <th>No</th>
+    <th>Nama</th>
+    <th>Jenis</th>
+    <th>Ras</th>
+    <th>Umur</th>
+    <th>Pemilik</th>
+    <th>Aksi</th>
+</tr>
+
+{% for pet in pets %}
+
+<tr>
+
+<td>{{ loop.index }}</td>
+
+<td>{{ pet.name }}</td>
+
+<td>{{ pet.species }}</td>
+
+<td>{{ pet.breed }}</td>
+
+<td>{{ pet.age }} Tahun</td>
+
+<td>{{ pet.owner.name }}</td>
+
+<td>
+
+<a class="edit" href="/pets/edit/{{ pet.id }}">Edit</a>
+
+<a class="delete"
+href="/pets/delete/{{ pet.id }}"
+onclick="return confirm('Hapus data?')">
+Hapus
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

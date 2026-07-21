@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Edit Kontak</title>
+<style>
+body{font-family:Arial;background:#f589a1;padding:40px;}
+.container{width:650px;margin:auto;background:white;padding:30px;border-radius:15px;}
+label{display:block;margin-top:15px;font-weight:bold;}
+input,textarea{
+width:100%;
+padding:10px;
+margin-top:5px;
+border:1px solid #ccc;
+border-radius:8px;
+box-sizing:border-box;
+}
+textarea{
+height:120px;
+resize:none;
+}
+.button{
+margin-top:20px;
+display:flex;
+justify-content:space-between;
+}
+button{
+background:#94B17A;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:8px;
+}
+a{
+background:#999;
+color:white;
+padding:12px 25px;
+text-decoration:none;
+border-radius:8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Edit Kontak</h2>
+
+<form method="POST">
+
+<label>Nama</label>
+<input type="text" name="name" value="{{ contact.name }}">
+
+<label>Email</label>
+<input type="email" name="email" value="{{ contact.email }}">
+
+<label>Pesan</label>
+<textarea name="message">{{ contact.message }}</textarea>
+
+<div class="button">
+
+<a href="{{ url_for('contacts') }}">
+Kembali
+</a>
+
+<button type="submit">
+Update
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</body>
+</html>

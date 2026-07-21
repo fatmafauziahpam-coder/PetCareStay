@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Pemilik</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f589a1;
+            margin:0;
+            padding:40px;
+        }
+
+        .container{
+            width:600px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 0 15px rgba(0,0,0,.15);
+        }
+
+        h2{
+            text-align:center;
+            color:#94B17A;
+            margin-bottom:30px;
+        }
+
+        label{
+            display:block;
+            margin-top:15px;
+            font-weight:bold;
+        }
+
+        input, textarea{
+            width:100%;
+            padding:10px;
+            margin-top:5px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            box-sizing:border-box;
+        }
+
+        textarea{
+            resize:none;
+            height:100px;
+        }
+
+        .btn{
+            margin-top:25px;
+            display:flex;
+            justify-content:space-between;
+        }
+
+        button{
+            background:#94B17A;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            border-radius:8px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            background:#7d9866;
+        }
+
+        a{
+            text-decoration:none;
+            background:#999;
+            color:white;
+            padding:12px 25px;
+            border-radius:8px;
+        }
+
+        a:hover{
+            background:#777;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Tambah Data Pemilik</h2>
+
+    <form method="POST">
+
+        <label>Nama</label>
+        <input type="text" name="name" required>
+
+        <label>No HP</label>
+        <input type="text" name="phone">
+
+        <label>Email</label>
+        <input type="email" name="email">
+
+        <label>Alamat</label>
+        <textarea name="address"></textarea>
+
+        <div class="btn">
+            <a href="{{ url_for('owners') }}">Kembali</a>
+            <button type="submit">Simpan</button>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

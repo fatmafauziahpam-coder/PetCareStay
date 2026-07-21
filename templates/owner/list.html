@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Data Pemilik{% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <h2>🐾 PetCareStay</h2>
+
+        <a href="/dashboard">
+            Dashboard
+        </a>
+
+        <a href="/owners">
+            Pemilik
+        </a>
+
+        <a href="#">
+            Hewan
+        </a>
+
+        <a href="#">
+            Booking
+        </a>
+
+        <a href="#">
+            Kontak
+        </a>
+
+        <a href="/">
+            Logout
+        </a>
+
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <h1>Data Pemilik</h1>
+
+            <a href="/owners/add" class="btn login-button">
+
+                + Tambah Pemilik
+
+            </a>
+
+        </div>
+
+        <table class="table table-bordered table-hover bg-white">
+
+            <thead class="table-success">
+
+                <tr>
+
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>No HP</th>
+                    <th>Email</th>
+                    <th>Aksi</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for owner in owners %}
+
+                <tr>
+
+                    <td>{{ loop.index }}</td>
+
+                    <td>{{ owner.name }}</td>
+
+                    <td>{{ owner.phone }}</td>
+
+                    <td>{{ owner.email }}</td>
+
+                    <td>
+
+                        <a href="/owners/edit/{{ owner.id }}"
+                           class="btn btn-warning btn-sm">
+
+                            Edit
+
+                        </a>
+
+                        <a href="/owners/delete/{{ owner.id }}"
+                           class="btn btn-danger btn-sm">
+
+                            Hapus
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}
