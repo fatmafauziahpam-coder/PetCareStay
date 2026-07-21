@@ -36,8 +36,18 @@ def home():
 # ==========================
 @app.route("/login", methods=["GET", "POST"])
 def login():
+
     if request.method == "POST":
-        return "POST BERHASIL"
+
+        username = request.form["username"]
+        password = request.form["password"]
+
+        user = User.query.filter_by(username=username).first()
+
+        if user and user.check_password(password):
+            return redirect(url_for("dashboard"))
+
+        flash("Username atau password salah!")
 
     return render_template("login.html")
 
